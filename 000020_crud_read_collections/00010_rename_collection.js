@@ -1,0 +1,1 @@
+db.originalCollectionName.renameCollection('newCollectionName')

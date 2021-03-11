@@ -1,0 +1,7 @@
+'Powershell Mongo CSV Imports
+'Run the following PowerShell command to import CSV files into the mongo:
+
+Get-ChildItem "C:\MongoDb\samples\northwind\csv" -Filter *.csv | `
+Foreach-Object {
+    C:\MongoDb\bin\mongoimport.exe -h localhost:55000 -d northwind -c $_.BaseName --type csv --file $_.FullName --headerline 
+}

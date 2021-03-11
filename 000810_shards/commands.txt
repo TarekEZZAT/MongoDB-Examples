@@ -1,0 +1,53 @@
+mongod --configsvr --dbpath G:/data/shards/cfgserverA/data --port 27019 --replSet rsConfigSrv
+/*
+mongod --configsvr --dbpath G:/data/shards/cfgserverA/data --port 27019 --replSet rsConfigSvr --logpath "G:/data/shards/cfgserverA/logs/cfgserverA.log" --logappend --directoryperdb
+*/
+
+mongo	localhost:27019
+>>
+rs.initiate()
+rs.status()['configsvr']
+<<
+mongod --shardsvr --dbpath G:/data/shards/shard1/data --port 27027
+mongod --shardsvr --dbpath G:/data/shards/shard2/data --port 27028
+mongod --shardsvr --dbpath G:/data/shards/shard3/data --port 27029
+
+mongos --configdb rsConfigSrv/127.0.0.1:27019
+/*
+mongos --configdb rsConfigSrv/localhost.localdomain:27019
+*/
+>>
+sh.addShard('localhost.localdomain:27027')
+sh.addShard('localhost.localdomain:27028')
+sh.addShard('localhost.localdomain:27029')
+sh.status()
+
+sh.enableSharding('myShardedDB')
+sh.shardCollection('myShardedDB.people', {language:	1})
+/*
+sh.enableSharding('peopleDB')
+sh.shardCollection('peopleDB.people', {language: 1})
+*/
+<<
+mongoimport --host localhost.localdomain --db myShardedDB --collection people --type csv --headerline --file "E:/Training/_ DATABASES/CSV/people.csv"
+>>
+sh.status()
+db.people.find({"language": "Norwegian"}).explain()
+sh.status()
+db.people.find({"language": {"$in": ["Norwegian", "Arabic"]}}).explain()
+
+//-------------------------------
+sh.enableSharding('companiesDB')
+sh.shardCollection('companiesDB.companies', {category_code: 1, number_of_employees: 1})
+sh.shardCollection('companiesDB.companies', {number_of_employees: 1})
+sh.shardCollection('companiesDB.companies', {category_code: 1})
+<<
+mongoimport --host localhost.localdomain --db companiesDB --collection companies --file "E:\Training\_ DATABASES\JSON+BSON\companies.json"
+//-------------------------------
+sh.enableSharding('restaurantsDB')
+sh.shardCollection('restaurantsDB.restaurants', {address.zipcode: 1})
+mongoimport --host localhost.localdomain --db companiesDB --collection companies --file "E:\Training\_ DATABASES\JSON+BSON\restaurants.json"
+
+
+
+

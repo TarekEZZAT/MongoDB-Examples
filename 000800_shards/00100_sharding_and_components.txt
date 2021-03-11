@@ -1,0 +1,51 @@
+Understanding sharding and its components
+
+
+In the previous chapter, we saw how MongoDB provides high availability using replica sets. Replica sets also allow distributing read queries across slaves, thus providing a fair bit of load distribution across a cluster of nodes. We have also seen that MongoDB performs most optimally if its working datasets can fit in memory with minimal disk operations. However, as databases grow, it becomes harder to provision servers that can effectively fit the entire working set in memory. This is one of the most common scalability problems faced by most growing organizations.
+
+To address this, MongoDB provides sharding of collections. Sharding allows dividing the data into smaller chunks and distributing it across multiple machines.
+
+  
+
+
+Components of MongoDB sharding
+infrastructure
+
+
+Unlike replica sets, a sharded MongoDB cluster consists of multiple components.  
+
+
+The config server is used to store metadata about the sharded cluster. It contains details about authorizations, as well as admin and config databases. The metadata stored in the config server is read by mongos and shards, making its role extremely important during the operation of the sharded cluster. Thus, it is highly recommended that the config server is setup as a replica set, with appropriate backup and monitoring configured.
+
+  
+
+
+MongoDB's mongos server acts as an interface between the application and the sharded cluster. First, it gathers information (metadata) about the sharded cluster from the config server (described later). Once it has the relevant information about the sharded cluster, it acts as a proxy for all the read and write operations on the cluster. In that, applications only talk to the mongos server and never talks directly to a shard.
+
+More information on how mongos routes queries can be seen at: https://docs.mongodb.com/manual/core/sharded-cluster-query-router/.
+
+
+  
+
+
+The shard server is nothing but a mongod instance and is executed with the 
+--shardsvr switch. The config server delegates chunks to each shard server based on the shard key used for the collection. All queries, executed on the shard, have to originate through the mongos query router. Applications should never directly communicate with a standalone shard.
+
+  
+
+
+In order to partition data across multiple shards, MongoDB uses a shard key. This is an immutable key that can be used to identify a document within a
+sharded collection. Based on boundaries of the shard key, the data is then divided into chunks and spread across multiple shards within a cluster. It is important to note that MongoDB provides sharding at the collection level and a sharded collection can have only one shard key. As shard keys are immutable, we cannot change a key once it is set. It is extremely important to properly plan shard keys before setting up a sharded cluster.
+
+MongoDB provides two sharding strategies—a hashed shard key and ranged shard key.
+
+In hashed shard keys, MongoDB computes and indexes on the hash of the shard key. The data is then evenly distributed across the cluster. So at the expense of a broadcast query, we can achieve even distribution of data across all shards.
+
+A ranged shard key is the default shard key strategy used by MongoDB. In this strategy, MongoDB splits the ranges into chunks and distributes these chunks accordingly. This increases the chance of documents, which have a close proximity to the key value, to be stored on the same shard. In such cases, queries would not be broadcast to all the shards and DB operations would become faster. However, this can also lead to shards getting overloaded on a certain type of keys.
+
+For example, if we do a ranged key on language and keep adding a high number of documents for English speaking users, then the shard holding the key would get all the documents. So there is a good chance that document distribution would be uneven.
+
+So it is extremely important to plan out your sharding strategy far in advance. All aspects of your applications must be thoroughly understood before choosing a shard key strategy.
+
+More information about shard key specifications can be found at: https://docs.mongodb.com/manual/core/sharding-shard-key. 
+

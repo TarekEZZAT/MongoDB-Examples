@@ -1,0 +1,89 @@
+I am testing the sharding in MongoDB
+
+I start the configuration server first, and I use two methods to do it.
+
+method 1/ with configuraation file (does not work)
+here is my configuration file
+
+
+
+   
+   
+systemLog:
+  destination: file
+  path: "G:/data/replicas/server2/logs/server1.log"
+  logAppend: true
+storage:
+  dbPath: "G:/data/replicas/server2/db"
+  engine: wiredTiger
+  journal:
+      enabled: true
+#security:
+#  authorization: enabled
+replication:
+  oplogSizeMB: 128
+  replSetName: rsData
+#processManagement:
+#   fork: true
+net:
+   bindIp: 127.0.0.1
+   port: 27018
+
+when I run rs.initiate, I get an error.
+
+
+
+> rs.initiate()
+{
+        "info2" : "no configuration specified. Using a default configuration for the set",
+        "me" : "HORUS:27019",
+        "ok" : 0,
+        "errmsg" : "No host described in new configuration 1 for replica set rsConfSvr maps to this node",
+        "code" : 93,
+        "codeName" : "InvalidReplicaSetConfig"
+}
+
+when I run rs.status(), after rs.initiate(), I get an error.
+
+> rs.status()
+{
+        "info" : "run rs.initiate(...) if not yet done for the set",
+        "ok" : 0,
+        "errmsg" : "no replset config has been received",
+        "code" : 94,
+        "codeName" : "NotYetInitialized"
+}
+
+method 2/ with command line
+This works
+Unless I am wrong, the command line has the same options as the config file
+
+mongod --configsvr --dbpath G:/data/shards/cfgserverA/data --port 27019 --replSet rsConfigSvr --logpath "G:/data/shards/cfgserverA/logs/cfgserverA.log"
+--logappend true --directoryperdb true
+
+
+Now rs.initiate() and rs.status() work corectly.
+
+
+ rs.initiate()
+{
+        "info2" : "no configuration specified. Using a default configuration for the set",
+        "me" : "HORUS:27019",
+        "ok" : 1
+}
+rsConfigSvr:OTHER>
+
+rs.status()['configsvr']
+true
+
+Can someone explain? I dont understand the reason of this difference.
+
+
+
+
+
+
+
+
+
+

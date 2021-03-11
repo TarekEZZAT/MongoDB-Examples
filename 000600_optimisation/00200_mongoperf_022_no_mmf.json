@@ -1,0 +1,6 @@
+{	recSizeKB:	8,
+	nThreads:	12,
+	fileSizeMB:	10000,
+	r:	true,
+	mmf:	false	
+}

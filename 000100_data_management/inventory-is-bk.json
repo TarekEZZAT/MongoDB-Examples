@@ -1,0 +1,21 @@
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0254"},"item":"journal","status":"A"}
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0255"},"item":"notebook","status":"A"}
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0256"},"item":"paper","status":"D"}
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0257"},"item":"planner","status":"D"}
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0258"},"item":"postcard","status":"A"}
+{"_id":{"$oid":"5aee063b442ce2e4e57e0259"},"item":"canvas"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f5"},"item":"canvas","status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f6"},"item":"journal","status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f7"},"item":"mat","status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f8"},"item":"mousepad","status":"P"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f9"},"item":"notebook","status":"P"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fa"},"item":"paper","status":"D"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fb"},"item":"planner","status":"D"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fc"},"item":"postcard","status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fd"},"item":"sketchbook","status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fe"},"item":"sketch pad","status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2ff"},"item":"journal","status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad300"},"item":"notebook","status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad301"},"item":"paper","status":"D"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad302"},"item":"planner","status":"D"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad303"},"item":"postcard","status":"A"}

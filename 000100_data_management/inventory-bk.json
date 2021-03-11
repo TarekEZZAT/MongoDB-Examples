@@ -1,0 +1,21 @@
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0254"},"item":"journal","qty":25.0,"size":{"h":14.0,"w":21.0,"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0255"},"item":"notebook","qty":50.0,"size":{"h":8.5,"w":11.0,"uom":"in"},"status":"A"}
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0256"},"item":"paper","qty":100.0,"size":{"h":8.5,"w":11.0,"uom":"in"},"status":"D"}
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0257"},"item":"planner","qty":75.0,"size":{"h":22.85,"w":30.0,"uom":"cm"},"status":"D"}
+{"_id":{"$oid":"5aee05ec442ce2e4e57e0258"},"item":"postcard","qty":45.0,"size":{"h":10.0,"w":15.25,"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5aee063b442ce2e4e57e0259"},"item":"canvas","qty":100.0,"tags":["cotton"],"size":{"h":28.0,"w":35.5,"uom":"cm"}}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f5"},"item":"canvas","qty":100.0,"size":{"h":28.0,"w":35.5,"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f6"},"item":"journal","qty":25.0,"size":{"h":14.0,"w":21.0,"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f7"},"item":"mat","qty":85.0,"size":{"h":27.9,"w":35.5,"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f8"},"item":"mousepad","qty":25.0,"size":{"h":19.0,"w":22.85,"uom":"cm"},"status":"P"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2f9"},"item":"notebook","qty":50.0,"size":{"h":8.5,"w":11.0,"uom":"in"},"status":"P"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fa"},"item":"paper","qty":100.0,"size":{"h":8.5,"w":11.0,"uom":"in"},"status":"D"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fb"},"item":"planner","qty":75.0,"size":{"h":22.85,"w":30.0,"uom":"cm"},"status":"D"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fc"},"item":"postcard","qty":45.0,"size":{"h":10.0,"w":15.25,"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fd"},"item":"sketchbook","qty":80.0,"size":{"h":14.0,"w":21.0,"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2fe"},"item":"sketch pad","qty":95.0,"size":{"h":22.85,"w":30.5,"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad2ff"},"item":"journal","qty":25.0,"size":{"h":14.0,"w":21.0,"uom":"cm"},"status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad300"},"item":"notebook","qty":50.0,"size":{"h":8.5,"w":11.0,"uom":"in"},"status":"A"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad301"},"item":"paper","qty":100.0,"size":{"h":8.5,"w":11.0,"uom":"in"},"status":"D"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad302"},"item":"planner","qty":75.0,"size":{"h":22.85,"w":30.0,"uom":"cm"},"status":"D"}
+{"_id":{"$oid":"5af14f115de38a95bd9ad303"},"item":"postcard","qty":45.0,"size":{"h":10.0,"w":15.25,"uom":"cm"},"status":"A"}

@@ -1,0 +1,343 @@
+Configuration file options
+
+#	systemLog options	
+
+systemLog:
+   verbosity: <int>
+   quiet: <boolean>
+   traceAllExceptions: <boolean>
+   syslogFacility: <string>
+   path: <string>
+   logAppend: <boolean>
+   logRotate: <string>
+   destination: <string>
+   timeStampFormat: <string>
+   component:
+      accessControl:
+         verbosity: <int>
+      command:
+         verbosity: <int>
+	
+
+#	systemLog.components options	
+
+	
+systemLog:
+   component:
+      accessControl:
+         verbosity: <int>
+      command:
+         verbosity: <int>
+
+    # COMMENT some component verbosity settings omitted for brevity
+
+      replication:
+         verbosity: <int>
+         heartbeats:
+            verbosity: <int>
+         rollback:
+            verbosity: <int>
+      storage:
+         verbosity: <int>
+         journal:
+            verbosity: <int>
+      write:
+         verbosity: <int>
+
+#  processManagement Options
+
+processManagement:
+   fork: <boolean>
+   pidFilePath: <string>
+   timeZoneInfo: <string>
+
+
+#net Options
+
+net:
+   port: <int>
+   bindIp: <string>
+   bindIpAll: <boolean>
+   maxIncomingConnections: <int>
+   wireObjectCheck: <boolean>
+   ipv6: <boolean>
+   unixDomainSocket:
+      enabled: <boolean>
+      pathPrefix: <string>
+      filePermissions: <int>
+   ssl:
+      sslOnNormalPorts: <boolean>  # deprecated since 2.6
+      mode: <string>
+      PEMKeyFile: <string>
+      PEMKeyPassword: <string>
+      clusterFile: <string>
+      clusterPassword: <string>
+      CAFile: <string>
+      CRLFile: <string>
+      allowConnectionsWithoutCertificates: <boolean>
+      allowInvalidCertificates: <boolean>
+      allowInvalidHostnames: <boolean>
+      disabledProtocols: <string>
+      FIPSMode: <boolean>
+   compression:
+      compressors: <string>
+   transportLayer: <string>
+   serviceExecutor: <string>
+
+#net.unixDomainSocket Options
+
+net:
+   unixDomainSocket:
+      enabled: <boolean>
+      pathPrefix: <string>
+      filePermissions: <int>
+
+#net.ssl Options
+
+net:
+   ssl:
+      sslOnNormalPorts: <boolean>  # deprecated since 2.6
+      mode: <string>
+      PEMKeyFile: <string>
+      PEMKeyPassword: <string>
+      clusterFile: <string>
+      clusterPassword: <string>
+      CAFile: <string>
+      CRLFile: <string>
+      allowConnectionsWithoutCertificates: <boolean>
+      allowInvalidCertificates: <boolean>
+      allowInvalidHostnames: <boolean>
+      disabledProtocols: <string>
+      FIPSMode: <boolean>
+
+#net.compression Option
+
+net:
+   compression:
+      compressors: <string>
+
+
+#security Options
+
+security:
+   keyFile: <string>
+   clusterAuthMode: <string>
+   authorization: <string>
+   transitionToAuth: <boolean>
+   javascriptEnabled:  <boolean>
+   redactClientLogData: <boolean>
+   sasl:
+      hostName: <string>
+      serviceName: <string>
+      saslauthdSocketPath: <string>
+   enableEncryption: <boolean>
+   encryptionCipherMode: <string>
+   encryptionKeyFile: <string>
+   kmip:
+      keyIdentifier: <string>
+      rotateMasterKey: <boolean>
+      serverName: <string>
+      port: <string>
+      clientCertificateFile: <string>
+      clientCertificatePassword: <string>
+      serverCAFile: <string>
+   ldap:
+      servers: <string>
+      bind:
+         method: <string>
+         saslMechanisms: <string>
+         queryUser: <string>
+         queryPassword: <string>
+         useOSDefaults: <boolean>
+      transportSecurity: <string>
+      timeoutMS: <int>
+      userToDNMapping: <string>
+      authz:
+         queryTemplate: <string>
+
+#Key Management Configuration Options
+
+security:
+   enableEncryption: <boolean>
+   encryptionCipherMode: <string>
+   encryptionKeyFile: <string>
+   kmip:
+      keyIdentifier: <string>
+      rotateMasterKey: <boolean>
+      serverName: <string>
+      port: <string>
+      clientCertificateFile: <string>
+      clientCertificatePassword: <string>
+      serverCAFile: <string>
+
+#security.sasl Options
+
+security:
+   sasl:
+      hostName: <string>
+      serviceName: <string>
+      saslauthdSocketPath: <string>
+
+#security.ldap Options
+
+security:
+   ldap:
+      servers: <string>
+      bind:
+         method: <string>
+         saslMechanisms: <string>
+         queryUser: <string>
+         queryPassword: <string>
+         useOSDefaults: <boolean>
+      transportSecurity: <string>
+      timeoutMS: <int>
+      userToDNMapping: <string>
+      authz:
+         queryTemplate: <string>
+
+#setParameter options
+	 
+setParameter:
+   <parameter1>: <value1>
+   <parameter2>: <value2>
+   
+   
+#storage Options
+
+storage:
+   dbPath: <string>
+   indexBuildRetry: <boolean>
+   repairPath: <string>
+   journal:
+      enabled: <boolean>
+      commitIntervalMs: <num>
+   directoryPerDB: <boolean>
+   syncPeriodSecs: <int>
+   engine: <string>
+   mmapv1:
+      preallocDataFiles: <boolean>
+      nsSize: <int>
+      quota:
+         enforced: <boolean>
+         maxFilesPerDB: <int>
+      smallFiles: <boolean>
+      journal:
+         debugFlags: <int>
+         commitIntervalMs: <num>
+   wiredTiger:
+      engineConfig:
+         cacheSizeGB: <number>
+         journalCompressor: <string>
+         directoryForIndexes: <boolean>
+      collectionConfig:
+         blockCompressor: <string>
+      indexConfig:
+         prefixCompression: <boolean>
+   inMemory:
+      engineConfig:
+         inMemorySizeGB: <number>
+
+#storage.mmapv1 Options
+
+storage:
+   mmapv1:
+      preallocDataFiles: <boolean>
+      nsSize: <int>
+      quota:
+         enforced: <boolean>
+         maxFilesPerDB: <int>
+      smallFiles: <boolean>
+      journal:
+         debugFlags: <int>
+         commitIntervalMs: <num>
+
+
+#storage.wiredTiger Options¶
+
+storage:
+   wiredTiger:
+      engineConfig:
+         cacheSizeGB: <number>
+         journalCompressor: <string>
+         directoryForIndexes: <boolean>
+      collectionConfig:
+         blockCompressor: <string>
+      indexConfig:
+         prefixCompression: <boolean>
+		 
+#storage.inmemory Options
+
+storage:
+   inMemory:
+      engineConfig:
+         inMemorySizeGB: <number>
+
+#operationProfiling Options
+
+operationProfiling:
+   mode: <string>
+   slowOpThresholdMs: <int>
+   slowOpSampleRate: <double>
+
+#replication Options
+
+replication:
+   oplogSizeMB: <int>
+   replSetName: <string>
+   secondaryIndexPrefetch: <string>
+   enableMajorityReadConcern: <boolean>  ## Deprecated in 3.6
+
+#sharding Options
+
+sharding:
+   clusterRole: <string>
+   archiveMovedChunks: <boolean>
+
+#auditLog Options
+#Available only in MongoDB Enterprise.
+
+auditLog:
+   destination: <string>
+   format: <string>
+   path: <string>
+   filter: <string>
+
+#snmp Options
+#MongoDB Enterprise on macOS does not include support for SNMP due to SERVER-29352.
+
+snmp:
+   subagent: <boolean>
+   master: <boolean>
+
+
+
+#Text Search Options
+#Available in MongoDB Enterprise only.
+
+basisTech:
+	basisTech.rootDirectory: <string>
+
+
+
+
+######### mongos-only Options
+
+
+replication:
+   localPingThresholdMs: <int>
+
+sharding:
+   configDB: <string>
+
+Windows Service Options
+
+#processManagement:
+   windowsService:
+      serviceName: <string>
+      displayName: <string>
+      description: <string>
+      serviceUser: <string>
+      servicePassword: <string>
+
+
+

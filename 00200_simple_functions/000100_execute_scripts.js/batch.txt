@@ -1,0 +1,16 @@
+mongo --shell  "G:/data/db/TP/000100_scripts/file1.js" "G:/data/db/TP/000100_scripts/file2.js"
+#+++++++
+mongo --shell "E:\Training\MongoDB\TP\000100_scripts\file1.js" "E:\Training\MongoDB\TP\000100_scripts\file.js"
+#+++++++
+#from %MONGO%/bin
+mongo --shell
+connecting to: mongodb://127.0.0.1:27017
+> load ("G:/data/db/TP/000100_scripts/file1.js")
+true
+> load ("G:/data/db/TP/000100_scripts/file2.js")
+true
+#+++++++
+> f()
+Hello from function f defined in file file1.js!
+> successor(12)
+13
